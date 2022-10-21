@@ -59,12 +59,14 @@ const updateUI = (data) => {
   const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
   icon.setAttribute("src", iconSrc);
 
-  let timeSrc = null;
-  if (weather.IsDayTime) {
-    timeSrc = "img/day.svg";
-  } else {
-    timeSrc = "img/night.svg";
-  }
+  let timeSrc = weather.IsDayTime ? "img/day.svg" : "img/night.svg";
+
+  //   let timeSrc = null;
+  //   if (weather.IsDayTime) {
+  //     timeSrc = "img/day.svg";
+  //   } else {
+  //     timeSrc = "img/night.svg";
+  //   }
 
   time.setAttribute("src", timeSrc);
 
@@ -92,3 +94,6 @@ cityForm.addEventListener("submit", (e) => {
     .then((data) => updateUI(data))
     .catch((err) => console.log(err));
 });
+
+const result = true ? "value 1" : "value 2";
+console.log(result);
